@@ -4,3 +4,9 @@ node_modules/
 .DS_Store
 .env
 .env.*
+
+# Internal marketing/outreach assets — local only, NOT for public repo
+marketing/
+outreach/
+.chrome-profile/
+*.tmp.html
