@@ -1,5 +1,6 @@
 [build]
   publish = "."
+  functions = "netlify/functions"
 
 [[headers]]
   for = "/*"
@@ -41,6 +42,16 @@
 
 [[redirects]]
   from = "/marketing/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+# SECURITY: the deploy folder holds netlify/functions/ (the lead function and
+# its guard), which would otherwise be served as readable source at
+# /netlify/functions/<name>.js. Functions run at /.netlify/functions/ (leading
+# dot) and are unaffected. Same rule as the sibling sites. Do not remove.
+[[redirects]]
+  from = "/netlify/*"
   to = "/404.html"
   status = 404
   force = true

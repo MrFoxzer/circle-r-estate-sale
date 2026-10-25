@@ -781,8 +781,9 @@
                     </a>
                     <p class="contact-tagline">Text or call anytime &mdash; weekdays, weekends, evenings, all open. If you want to walk the property, I'll make any time work.</p>
                 </div>
-                <form name="property-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form" data-animate>
+                <form name="property-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-human-check class="contact-form" data-animate>
                     <input type="hidden" name="form-name" value="property-inquiry">
+                    <input type="hidden" name="human">
                     <p hidden><label>Don't fill this out: <input name="bot-field"></label></p>
                     <div class="form-row">
                         <label for="name">Name *</label>
@@ -841,5 +842,6 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="js/human-check.js?v=2"></script>
 </body>
 </html>
