@@ -23,3 +23,24 @@
   for = "/*.js"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# PRIVACY: outreach/ and marketing/ hold buyer contact lists, parcel-owner scans,
+# personal letters and internal strategy notes. They were being published because
+# the site deploys the whole folder. Keep the email QR/HTML assets reachable (sent
+# emails may point at them) and 404 everything else. Added 2026-10-25.
+[[redirects]]
+  from = "/outreach/emails/*"
+  to = "/outreach/emails/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/outreach/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/marketing/*"
+  to = "/404.html"
+  status = 404
+  force = true
