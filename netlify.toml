@@ -1,5 +1,17 @@
+# PRIVACY: deploy _site/, never this folder. netlify/build-site.cjs fills it
+# with the website files only: no netlify/ function source, no outreach/ or
+# marketing/ (except the email pages + QR codes listed in the gitignored
+# outreach/emails/PUBLIC-FILES.txt), no .env, package files or node_modules. Netlify serves files case-insensitively but matches the
+# redirect rules below case-sensitively, so those rules alone did not hide
+# deployed files (/Netlify/functions/... leaked, 2026-10-25). Functions are
+# bundled from netlify/functions separately. Manual CLI deploy, from this folder
+# (outreach/emails is gitignored, so not from a git-archive export):
+#   node netlify/build-site.cjs
+#   netlify deploy --prod --no-build --dir _site --functions netlify/functions --site 6cc5eece-1db2-4b39-9873-a2ebe9332f4e
+# Never use --dir . here.
 [build]
-  publish = "."
+  command = "node netlify/build-site.cjs"
+  publish = "_site"
   functions = "netlify/functions"
 
 [[headers]]
